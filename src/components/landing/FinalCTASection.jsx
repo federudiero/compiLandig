@@ -13,13 +13,13 @@ export default function FinalCTASection() {
               <SectionEyebrow dark>Contacto</SectionEyebrow>
 
               <h2 className="max-w-3xl text-4xl font-extrabold tracking-[-0.03em] text-white md:text-6xl">
-                Si la marca necesita más dirección, esta web ya lo comunica mejor.
+                Contanos qué necesita tu marca y armamos una propuesta a medida.
               </h2>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-                Dejé el cierre con enfoque comercial y más alineado a marketing.
-                El formulario puede conectarse después al canal real que usen,
-                pero visualmente ya responde al universo de COMPI.
+                Podemos ayudarte con estrategia, contenido, campañas
+                publicitarias, landing pages, sitios web o una propuesta integral
+                donde todo trabaje en conjunto.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -29,7 +29,7 @@ export default function FinalCTASection() {
                 </a>
 
                 <a href="#servicios" className="compi-btn-outline-light">
-                  Ver propuesta
+                  Ver servicios
                 </a>
               </div>
             </div>
@@ -42,7 +42,7 @@ export default function FinalCTASection() {
               className="rounded-[2rem] bg-white p-6 text-[var(--compi-deep-green)] shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
             >
               <p className="text-sm uppercase tracking-[0.25em] text-[var(--compi-blue-soft)]">
-                Formulario base
+                Brief inicial
               </p>
 
               <div className="mt-6 space-y-4">
@@ -63,7 +63,7 @@ export default function FinalCTASection() {
                 />
                 <textarea
                   rows={5}
-                  placeholder="Contanos qué querés mejorar: posicionamiento, contenido, pauta, landing o web"
+                  placeholder="Contanos sobre tu marca y qué necesitás: estrategia, contenido, publicidad, landing o web"
                   className="compi-input min-h-[148px] resize-none"
                 />
                 <button className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--compi-orange)] px-6 py-4 text-sm font-semibold text-white transition hover:translate-y-[-1px] hover:bg-[var(--compi-blue)]">

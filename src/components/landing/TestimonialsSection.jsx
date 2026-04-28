@@ -4,16 +4,16 @@ import { SectionEyebrow, SectionHeading } from "./ui";
 
 const pillars = [
   {
-    title: "Sello argentino + visión internacional",
-    text: "El manual lo plantea de forma explícita. Por eso la web ahora comunica una marca con identidad propia, no una landing genérica de agencia.",
+    title: "Mirada estratégica",
+    text: "Analizamos tu marca, tu oferta, tu audiencia y tus objetivos antes de ejecutar cualquier acción.",
   },
   {
-    title: "Cercanía, dinamismo y autenticidad",
-    text: "La dirección visual recomendada en el manual habla de humanidad, modernidad y autenticidad. Eso se bajó a colores, tarjetas, bloques y tono.",
+    title: "Creatividad con identidad",
+    text: "Desarrollamos contenido y diseño que se ve profesional, coherente y alineado con lo que tu marca necesita comunicar.",
   },
   {
-    title: "Coherencia en todos los puntos de contacto",
-    text: "Se eliminó el box de seguimiento y el look oscuro tipo dashboard para que toda la web responda a una lógica de marca más editorial y comercial.",
+    title: "Acompañamiento integral",
+    text: "Podemos trabajar estrategia, contenido, publicidad y web dentro de una misma lógica para que todo tenga más sentido y mejores resultados.",
   },
 ];
 
@@ -21,11 +21,11 @@ export default function TestimonialsSection() {
   return (
     <section id="testimonios" className="relative px-6 py-24 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <SectionEyebrow>Identidad aplicada</SectionEyebrow>
+        <SectionEyebrow>Por qué COMPI</SectionEyebrow>
 
         <SectionHeading
-          title="La página ahora se siente más COMPI y mucho menos template."
-          text="El cambio no fue solo de colores. Se reordenó la jerarquía para que marketing sea el centro, se usó una paleta alineada al manual y se bajó el lenguaje visual a un formato más humano, dinámico y reconocible."
+          title="Una agencia que combina estrategia, creatividad y ejecución."
+          text="No se trata solo de diseñar piezas o lanzar anuncios. Se trata de entender tu negocio, construir una propuesta clara y ejecutar acciones que ayuden a comunicar y vender mejor."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">

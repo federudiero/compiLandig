@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { brandValues } from "../../data/compiLandingData";
+import { brandValues, transformationMedia } from "../../data/compiLandingData";
+import AbstractMediaCluster from "./AbstractMediaCluster";
 import { SectionEyebrow, SectionHeading } from "./ui";
 
 export default function TransformationSection() {
@@ -12,8 +13,8 @@ export default function TransformationSection() {
 
           <SectionHeading
             dark
-            title="Una agencia creativa con identidad argentina y visión integral."
-            text="Según el manual, la marca nace de la conexión, la confianza y la complicidad entre sus fundadores. La web ahora toma esa misma base: estrategia, creatividad, cercanía y una mirada humana del marketing."
+            title="Una agencia que une estrategia, creatividad y ejecución."
+            text="COMPI nace de una dupla con mirada creativa y enfoque estratégico. Esa combinación se transforma en marcas mejor posicionadas, comunicación más clara y acciones pensadas para generar resultados reales."
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -68,6 +69,25 @@ export default function TransformationSection() {
             );
           })}
         </div>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-7xl">
+        <div className="mb-8 max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--compi-blue-soft)]">
+            Presentación de la agencia
+          </p>
+          <h3 className="mt-3 text-3xl font-extrabold tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-4xl">
+            Mostrá quiénes son, cómo trabajan y qué mirada aportan a cada proyecto.
+          </h3>
+          <p className="mt-4 text-base leading-8 text-[var(--compi-blue)]/90 md:text-lg">
+            Este bloque es ideal para un video institucional, escenas del equipo o piezas de branding que transmitan confianza, cercanía y criterio creativo.
+          </p>
+        </div>
+
+        <AbstractMediaCluster
+          featured={transformationMedia.featured}
+          secondary={transformationMedia.secondary}
+        />
       </div>
     </section>
   );

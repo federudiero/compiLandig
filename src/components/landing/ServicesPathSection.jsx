@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { services } from "../../data/compiLandingData";
+import { services, servicesMedia } from "../../data/compiLandingData";
+import AbstractMediaCluster from "./AbstractMediaCluster";
 import { SectionEyebrow, SectionHeading } from "./ui";
 
 export default function ServicesPathSection() {
@@ -10,9 +11,16 @@ export default function ServicesPathSection() {
         <SectionEyebrow>Servicios</SectionEyebrow>
 
         <SectionHeading
-          title="La web ahora vende mejor la parte de marketing porque la estructura arranca desde la estrategia."
-          text="En vez de mostrar un recorrido genérico, la página presenta el sistema real de trabajo de COMPI: posicionamiento, comunicación, contenido, pauta y conversión. El desarrollo web aparece como soporte comercial, no como eje aislado."
+          title="Servicios para ordenar, comunicar y hacer crecer tu marca."
+          text="Trabajamos estrategia, contenido, publicidad y desarrollo web orientado a conversión. Podés contratar un servicio puntual o una propuesta integral donde todo funcione bajo una misma lógica."
         />
+
+        <div className="mt-14">
+          <AbstractMediaCluster
+            featured={servicesMedia.featured}
+            secondary={servicesMedia.secondary}
+          />
+        </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((item, index) => {

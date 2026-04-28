@@ -47,7 +47,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <SectionEyebrow>Agencia creativa con enfoque estratégico</SectionEyebrow>
+            <SectionEyebrow>Agencia de marketing y creatividad</SectionEyebrow>
           </motion.div>
 
           <motion.p
@@ -56,7 +56,7 @@ export default function HeroSection() {
             transition={{ duration: 0.78, delay: 0.05 }}
             className="hero-hand mt-5 text-base text-[var(--compi-orange)] md:text-lg"
           >
-            Desde Argentina hacia el mundo.
+            Estrategia, contenido, publicidad y web.
           </motion.p>
 
           <motion.h1
@@ -65,7 +65,7 @@ export default function HeroSection() {
             transition={{ duration: 0.85, delay: 0.1 }}
             className="mt-4 max-w-4xl font-[var(--font-display)] text-5xl font-extrabold leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
           >
-            Marketing con identidad, estrategia y una web que convierta.
+            Hacemos que tu marca se vea mejor, comunique mejor y venda mejor.
           </motion.h1>
 
           <motion.p
@@ -74,10 +74,9 @@ export default function HeroSection() {
             transition={{ duration: 0.9, delay: 0.16 }}
             className="mt-6 max-w-2xl text-lg leading-8 text-[var(--compi-blue)]/90 md:text-xl"
           >
-            COMPI impulsa el crecimiento de marcas y empresas combinando
-            análisis, contenido y publicidad para transformar la presencia online
-            en resultados reales. La web ahora acompaña esa lógica: más marca,
-            más marketing y menos estética genérica.
+            En COMPI ayudamos a marcas y empresas a crecer con estrategia,
+            contenido, campañas publicitarias y páginas web pensadas para
+            convertir visitas en consultas, oportunidades o ventas.
           </motion.p>
 
           <motion.div
@@ -109,15 +108,15 @@ export default function HeroSection() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.6rem] bg-[var(--compi-deep-green)] p-6 text-white sm:col-span-2">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/65">
-                  Ruta estratégica
+                  Qué hacemos
                 </p>
                 <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.03em]">
-                  Estrategia + creatividad + resultados.
+                  Ordenamos tu marketing para que tenga dirección y resultados.
                 </h2>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-white/78">
-                  Una identidad visual coherente, campañas con criterio y una base
-                  digital pensada para que el marketing termine en consultas,
-                  oportunidades o ventas.
+                  Definimos estrategia, desarrollamos contenido, gestionamos
+                  campañas y creamos landing pages o sitios web alineados con tu
+                  objetivo comercial.
                 </p>
               </div>
 
@@ -153,10 +152,10 @@ export default function HeroSection() {
             Meta + Google Ads
           </div>
           <div className="brand-chip absolute -right-3 bottom-10 rotate-[6deg] bg-[var(--compi-mint)] text-[var(--compi-deep-green)]">
-            Marca + contenido
+            Branding + contenido
           </div>
           <div className="hero-hand absolute -bottom-6 left-8 text-lg text-[var(--compi-blue)]">
-            Click! tu marca se ordena mejor así.
+            Todo tiene que trabajar en conjunto.
           </div>
         </motion.div>
       </div>

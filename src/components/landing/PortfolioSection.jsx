@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe2 } from "lucide-react";
-import { portfolioItems } from "../../data/compiLandingData";
+import { portfolioItems, webMedia } from "../../data/compiLandingData";
+import AbstractMediaCluster from "./AbstractMediaCluster";
 import { SectionEyebrow, SectionHeading } from "./ui";
 
 export default function PortfolioSection() {
@@ -13,8 +14,8 @@ export default function PortfolioSection() {
             <SectionEyebrow>Web / Landing</SectionEyebrow>
 
             <SectionHeading
-              title="La web queda en la página como una extensión del marketing, no como un bloque desconectado."
-              text="Esto respeta mejor la propuesta de valor del manual: análisis, contenido y publicidad como núcleo; desarrollo web como soporte de conversión y crecimiento."
+              title="Landing pages y sitios web pensados para acompañar tu marketing."
+              text="Desarrollamos páginas claras, visualmente sólidas y enfocadas en convertir visitas en consultas, leads o ventas. No son webs decorativas: están hechas para ayudarte a vender mejor."
             />
           </div>
 
@@ -25,6 +26,13 @@ export default function PortfolioSection() {
             Quiero una propuesta integral
             <ArrowRight className="h-4 w-4" />
           </a>
+        </div>
+
+        <div className="mt-14">
+          <AbstractMediaCluster
+            featured={webMedia.featured}
+            secondary={webMedia.secondary}
+          />
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">

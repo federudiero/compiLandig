@@ -11,8 +11,8 @@ export default function BenefitsSection() {
           <SectionEyebrow>Resultados</SectionEyebrow>
 
           <SectionHeading
-            title="Cuando la marca está ordenada, el marketing deja de sentirse improvisado."
-            text="La nueva estética y el nuevo contenido buscan transmitir exactamente eso: cercanía, profesionalismo, coherencia y capacidad de expansión."
+            title="Qué obtiene tu marca cuando trabajamos todo de forma integrada."
+            text="Más claridad en el mensaje, mejor imagen de marca, campañas mejor orientadas y una presencia digital preparada para crecer."
           />
         </div>
 
@@ -30,7 +30,7 @@ export default function BenefitsSection() {
 
             return (
               <motion.div
-                key={item.text}
+                key={item.title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
@@ -41,7 +41,10 @@ export default function BenefitsSection() {
                   <Icon className="h-5 w-5" />
                 </div>
 
-                <p className="text-lg font-semibold leading-8">{item.text}</p>
+                <h3 className="text-lg font-bold leading-tight">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--compi-blue)]/88">
+                  {item.text}
+                </p>
               </motion.div>
             );
           })}

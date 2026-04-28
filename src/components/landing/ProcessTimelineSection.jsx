@@ -17,7 +17,7 @@ export default function ProcessTimelineSection() {
         <div className="mt-16 grid gap-6 lg:grid-cols-5">
           {processSteps.map((item, index) => (
             <motion.div
-              key={item.step}
+              key={item.number ?? `${item.title}-${index}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -26,7 +26,7 @@ export default function ProcessTimelineSection() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-4xl font-black text-[var(--compi-blue)]/18">
-                  {item.step}
+                  {item.number}
                 </span>
                 <div className="h-10 w-10 rounded-full bg-[var(--compi-paper-strong)]" />
               </div>
@@ -34,6 +34,7 @@ export default function ProcessTimelineSection() {
               <h3 className="mt-6 text-xl font-bold text-[var(--compi-deep-green)]">
                 {item.title}
               </h3>
+
               <p className="mt-3 text-sm leading-7 text-[var(--compi-blue)]/90">
                 {item.text}
               </p>

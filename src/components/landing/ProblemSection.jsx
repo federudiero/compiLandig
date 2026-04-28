@@ -11,8 +11,8 @@ export default function ProblemSection() {
         <SectionEyebrow>El problema</SectionEyebrow>
 
         <SectionHeading
-          title="Muchas marcas están activas, pero no necesariamente bien posicionadas."
-          text="La presencia digital no crece por cantidad de publicaciones. Crece cuando estrategia, identidad, contenido, pauta y conversión trabajan bajo una misma lógica."
+          title="Tener redes o una web no alcanza si no hay una estrategia detrás."
+          text="Muchas marcas publican, invierten en anuncios o tienen una página online, pero no logran resultados porque su comunicación no está ordenada ni conectada con un objetivo comercial claro."
         />
 
         <motion.div
