@@ -17,6 +17,7 @@ export const navItems = [
   { label: "Servicios", href: "#servicios" },
   { label: "Proceso", href: "#proceso" },
   { label: "Web", href: "#portfolio" },
+  { label: "Redes", href: "#redes" },
   { label: "Contacto", href: "#contacto" },
 ];
 

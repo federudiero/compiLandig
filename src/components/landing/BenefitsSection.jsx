@@ -35,7 +35,7 @@ export default function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="rounded-[1.75rem] border border-[rgba(34,70,110,0.12)] bg-white p-5 text-[var(--compi-deep-green)] shadow-[0_18px_50px_rgba(34,70,110,0.06)]"
+                className="compi-brand-card rounded-[1.75rem] p-5 text-[var(--compi-deep-green)]"
               >
                 <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-2xl ${iconBg[index % iconBg.length]}`}>
                   <Icon className="h-5 w-5" />

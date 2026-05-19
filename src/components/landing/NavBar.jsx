@@ -5,10 +5,11 @@ import logoCompi from "../../assets/logo-compi.png";
 export default function NavBar() {
   const nav = [
     { label: "Inicio", href: "#inicio" },
-    { label: "Marca", href: "#marca" },
+    { label: "Equipo", href: "#equipo" },
     { label: "Servicios", href: "#servicios" },
     { label: "Proceso", href: "#proceso" },
     { label: "Web", href: "#portfolio" },
+    { label: "Redes", href: "#redes" },
     { label: "Contacto", href: "#contacto" },
   ];
 

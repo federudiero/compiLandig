@@ -5,7 +5,7 @@ import { fadeUp } from "./animations";
 export function SectionEyebrow({ children, dark = false }) {
   return (
     <div
-      className={`mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] ${
+      className={`section-eyebrow mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] ${
         dark
           ? "bg-white/10 text-white/78"
           : "border border-[rgba(34,70,110,0.12)] bg-white text-[var(--compi-blue)]"

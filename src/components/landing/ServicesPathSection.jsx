@@ -41,7 +41,7 @@ export default function ServicesPathSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.62, delay: index * 0.05 }}
-                className="rounded-[2rem] border border-[rgba(34,70,110,0.12)] bg-white p-7 shadow-[0_18px_50px_rgba(34,70,110,0.06)]"
+                className="compi-brand-card rounded-[2rem] p-7"
               >
                 <div className={`mb-5 inline-flex rounded-2xl p-3 ${accents[index % accents.length]}`}>
                   <Icon className="h-6 w-6" />

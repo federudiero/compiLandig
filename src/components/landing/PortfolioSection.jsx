@@ -1,85 +1,190 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Globe2 } from "lucide-react";
-import { portfolioItems, webMedia } from "../../data/compiLandingData";
-import AbstractMediaCluster from "./AbstractMediaCluster";
+import {
+  ArrowRight,
+  BookOpen,
+  ExternalLink,
+  LayoutDashboard,
+  MessageCircle,
+} from "lucide-react";
 import { SectionEyebrow, SectionHeading } from "./ui";
+
+const projects = [
+  {
+    title: "Ebook Mindset",
+    tag: "Producto digital",
+    text: "Landing simple y directa para presentar un ebook, explicar su propuesta de valor y guiar al usuario hacia la compra.",
+    images: ["/images/portfolio/ebook.png"],
+    links: [
+      {
+        label: "Ver ebook",
+        url: "https://ebook-mentalidad-qaq4.vercel.app/",
+      },
+    ],
+    icon: BookOpen,
+  },
+  {
+    title: "CRM Hogar Cril",
+    tag: "CRM + gestión comercial",
+    text: "CRM comercial para ordenar conversaciones, clientes, seguimiento de oportunidades y trabajo interno del equipo.",
+    images: ["/images/portfolio/crm-comercial.png"],
+    links: [
+      {
+        label: "Ver CRM",
+        url: "https://crmhogarcril.com/",
+      },
+    ],
+    icon: MessageCircle,
+  },
+  {
+    title: "Sistema Estilos Pinturas",
+    tag: "Sistema operativo",
+    text: "Sistema para gestionar pedidos, roles, administración y hoja de ruta dentro de una operación real de ventas y repartos.",
+    images: [
+      "/images/portfolio/acceso-roles.png",
+      "/images/portfolio/hoja-ruta.png",
+    ],
+    links: [
+      {
+        label: "Ver web",
+        url: "https://estilospinturaspedidos.com/",
+      },
+      {
+        label: "Ver sistema",
+        url: "https://estilospinturaspedidos.com/home",
+      },
+    ],
+    icon: LayoutDashboard,
+  },
+];
+
+const cardMotion = {
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0 },
+};
+
+function ProjectImage({ project }) {
+  if (project.images.length === 1) {
+    return (
+      <img
+        src={project.images[0]}
+        alt={project.title}
+        loading="lazy"
+        className="h-[17rem] w-full object-cover object-top transition duration-500 group-hover:scale-[1.03] md:h-[20rem]"
+      />
+    );
+  }
+
+  return (
+    <div className="grid h-[17rem] grid-cols-2 gap-3 p-3 md:h-[20rem]">
+      {project.images.map((image, index) => (
+        <div
+          key={image}
+          className="overflow-hidden rounded-[1.35rem] border border-white/70 bg-white/70"
+        >
+          <img
+            src={image}
+            alt={`${project.title} ${index + 1}`}
+            loading="lazy"
+            className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="relative px-6 py-24 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="portfolio"
+      className="relative overflow-hidden px-6 py-24 lg:px-10"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute left-[-7rem] top-24 h-80 w-80 rounded-full bg-[var(--compi-sky)]/25 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-10 right-[-8rem] h-72 w-72 rounded-full bg-[var(--compi-mint)]/20 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
-            <SectionEyebrow>Web / Landing</SectionEyebrow>
+            <SectionEyebrow>Proyectos</SectionEyebrow>
 
             <SectionHeading
-              title="Landing pages y sitios web pensados para acompañar tu marketing."
-              text="Desarrollamos páginas claras, visualmente sólidas y enfocadas en convertir visitas en consultas, leads o ventas. No son webs decorativas: están hechas para ayudarte a vender mejor."
+              title="Proyectos digitales pensados para comunicar, vender y ordenar procesos."
+              text="Mostramos trabajos reales: productos digitales, CRM y sistemas internos desarrollados para resolver necesidades concretas de cada marca o negocio."
             />
           </div>
 
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--compi-orange)] transition hover:text-[var(--compi-deep-green)]"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(139,193,221,0.7)] bg-white/70 px-5 py-3 text-sm font-bold text-[var(--compi-deep-green)] shadow-[0_16px_45px_rgba(34,70,110,0.08)] transition hover:-translate-y-0.5 hover:bg-[var(--compi-deep-green)] hover:text-white"
           >
-            Quiero una propuesta integral
+            Quiero mi proyecto
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="mt-14">
-          <AbstractMediaCluster
-            featured={webMedia.featured}
-            secondary={webMedia.secondary}
-          />
-        </div>
-
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {portfolioItems.map((item, index) => {
-            const covers = [
-              "from-[var(--compi-sky)] via-white to-[var(--compi-paper-strong)]",
-              "from-[var(--compi-mint)] via-white to-[var(--compi-paper-strong)]",
-              "from-[rgba(235,88,64,0.20)] via-white to-[var(--compi-paper-strong)]",
-              "from-[rgba(34,70,110,0.18)] via-white to-[var(--compi-paper-strong)]",
-            ];
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project, index) => {
+            const Icon = project.icon;
 
             return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+              <motion.article
+                key={project.title}
+                variants={cardMotion}
+                initial="hidden"
+                whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.65, delay: index * 0.08 }}
-                className="group overflow-hidden rounded-[2rem] border border-[rgba(34,70,110,0.12)] bg-white shadow-[0_18px_50px_rgba(34,70,110,0.06)]"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className="compi-brand-card group flex h-full flex-col overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_78px_rgba(34,70,110,0.14)]"
               >
-                <div className={`relative aspect-[4/5] overflow-hidden bg-gradient-to-br ${covers[index % covers.length]} p-4`}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.35 }}
-                    className="flex h-full flex-col justify-between rounded-[1.5rem] border border-[rgba(34,70,110,0.10)] bg-white/85 p-5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <p className="text-xs uppercase tracking-[0.25em] text-[var(--compi-blue-soft)]">
-                        {item.tag}
-                      </p>
+                <div className="relative overflow-hidden border-b border-[rgba(139,193,221,0.38)] bg-[var(--compi-paper-strong)]">
+                  <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/88 px-3 py-2 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-[var(--compi-deep-green)] shadow-[0_14px_35px_rgba(34,70,110,0.12)] backdrop-blur">
+                    <Icon className="h-4 w-4" />
+                    {project.tag}
+                  </div>
 
-                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--compi-paper-strong)] text-[var(--compi-deep-green)]">
-                        <Globe2 className="h-4 w-4" />
+                  <ProjectImage project={project} />
+                </div>
+
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-2xl font-extrabold leading-tight tracking-[-0.02em] text-[var(--compi-deep-green)]">
+                        {project.title}
+                      </h3>
+
+                      <div className="hidden h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[rgba(139,193,221,0.24)] text-[var(--compi-deep-green)] md:grid">
+                        <Icon className="h-5 w-5" />
                       </div>
                     </div>
 
-                    <div>
-                      <p className="text-2xl font-bold leading-tight text-[var(--compi-deep-green)]">
-                        {item.title}
-                      </p>
-                      <p className="mt-3 text-sm leading-7 text-[var(--compi-blue)]/88">
-                        {item.text}
-                      </p>
-                    </div>
-                  </motion.div>
+                    <p className="mt-4 text-sm leading-7 text-[var(--compi-blue)]/85">
+                      {project.text}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-[var(--compi-deep-green)] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90"
+                      >
+                        {link.label}
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>

@@ -7,16 +7,16 @@ export default function FinalCTASection() {
   return (
     <section id="contacto" className="relative px-6 py-24 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="overflow-hidden rounded-[2.5rem] bg-[var(--compi-deep-green)] p-8 text-white shadow-[0_30px_90px_rgba(0,69,56,0.18)] md:p-12">
+        <div className="compi-sky-panel overflow-hidden rounded-[2.5rem] p-8 md:p-12">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <SectionEyebrow dark>Contacto</SectionEyebrow>
+              <SectionEyebrow>Contacto</SectionEyebrow>
 
-              <h2 className="max-w-3xl text-4xl font-extrabold tracking-[-0.03em] text-white md:text-6xl">
+              <h2 className="max-w-3xl text-4xl font-extrabold tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-6xl">
                 Contanos qué necesita tu marca y armamos una propuesta a medida.
               </h2>
 
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80">
+              <p className="compi-sky-panel-muted mt-5 max-w-2xl text-lg leading-8">
                 Podemos ayudarte con estrategia, contenido, campañas
                 publicitarias, landing pages, sitios web o una propuesta integral
                 donde todo trabaje en conjunto.
@@ -28,7 +28,7 @@ export default function FinalCTASection() {
                   <ArrowRight className="h-4 w-4" />
                 </a>
 
-                <a href="#servicios" className="compi-btn-outline-light">
+                <a href="#servicios" className="compi-btn-secondary">
                   Ver servicios
                 </a>
               </div>
@@ -39,7 +39,7 @@ export default function FinalCTASection() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              className="rounded-[2rem] bg-white p-6 text-[var(--compi-deep-green)] shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+              className="compi-brand-card rounded-[2rem] p-6 text-[var(--compi-deep-green)]"
             >
               <p className="text-sm uppercase tracking-[0.25em] text-[var(--compi-blue-soft)]">
                 Brief inicial

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { SectionEyebrow } from "./ui";
-import { heroHighlights, heroPills } from "../../data/compiLandingData";
+import { heroPills } from "../../data/compiLandingData";
 
 function FloatingPills() {
   return (
@@ -10,20 +10,28 @@ function FloatingPills() {
       {heroPills.map((item, index) => (
         <motion.div
           key={item}
-          initial={{ opacity: 0, y: 18 }}
-          animate={{
-            opacity: 1,
-            y: [0, index % 2 === 0 ? -5 : 5, 0],
-          }}
+          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
-            delay: 0.1 + index * 0.05,
-            duration: 4 + index * 0.12,
-            repeat: Infinity,
-            ease: "easeInOut",
+            delay: 0.04 + index * 0.035,
+            duration: 0.28,
+            ease: [0.22, 1, 0.36, 1],
           }}
-          className="rounded-full border border-[rgba(34,70,110,0.12)] bg-white px-4 py-2 text-sm font-medium text-[var(--compi-blue)] shadow-[0_8px_24px_rgba(34,70,110,0.06)]"
         >
-          {item}
+          <motion.div
+            animate={{
+              y: [0, index % 2 === 0 ? -6 : 6, 0],
+            }}
+            transition={{
+              delay: 0.18 + index * 0.04,
+              duration: 1.45 + index * 0.05,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="rounded-full border border-[rgba(34,70,110,0.12)] bg-white px-4 py-2 text-sm font-medium text-[var(--compi-blue)] shadow-[0_8px_24px_rgba(34,70,110,0.06)]"
+          >
+            {item}
+          </motion.div>
         </motion.div>
       ))}
     </div>
@@ -40,135 +48,83 @@ export default function HeroSection() {
       <div className="hero-doodle hero-doodle-b" />
       <div className="hero-doodle hero-doodle-c" />
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(300px,0.55fr)] lg:gap-14">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+            >
+              <SectionEyebrow>Agencia de marketing y creatividad</SectionEyebrow>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="mt-4 max-w-4xl font-[var(--font-display)] text-5xl font-extrabold leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
+            >
+              Desarrollamos estrategias de marketing digital para potenciar tu negocio.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.12 }}
+              className="mt-6 max-w-2xl text-lg leading-8 text-[var(--compi-blue)]/90 md:text-xl"
+            >
+              Optimizamos tu presencia online, generamos tráfico de calidad y aumentamos consultas y oportunidades de venta.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.42, delay: 0.16 }}
+              className="mt-10 flex flex-col gap-4 sm:flex-row"
+            >
+              <a href="#contacto" className="compi-btn-primary">
+                Agendar un diagnostico gratuito
+                <ArrowRight className="h-4 w-4" />
+              </a>
+
+              <a href="#servicios" className="compi-btn-secondary">
+                Ver servicios
+              </a>
+            </motion.div>
+
+            <FloatingPills />
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, x: 34, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.58, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mx-auto mt-4 w-full max-w-[360px] sm:max-w-[420px] lg:mt-0 lg:max-w-[500px] lg:self-end"
           >
-            <SectionEyebrow>Agencia de marketing y creatividad</SectionEyebrow>
+            <div className="absolute inset-x-4 bottom-3 top-14 rounded-[999px] bg-[radial-gradient(circle_at_50%_45%,rgba(250,184,64,0.28),rgba(255,255,255,0)_68%)] blur-sm" />
+            <div className="absolute bottom-3 left-1/2 h-16 w-[78%] -translate-x-1/2 rounded-full bg-[rgba(34,70,110,0.12)] blur-2xl" />
+
+            <motion.img
+              src="/equipo-compi.png"
+              alt="Equipo de COMPI"
+              draggable="false"
+              className="relative z-10 mx-auto w-full max-h-[70vh] object-contain drop-shadow-[0_28px_42px_rgba(10,31,44,0.2)]"
+            
+            />
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.78, delay: 0.05 }}
-            className="hero-hand mt-5 text-base text-[var(--compi-orange)] md:text-lg"
-          >
-            Estrategia, contenido, publicidad y web.
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.1 }}
-            className="mt-4 max-w-4xl font-[var(--font-display)] text-5xl font-extrabold leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
-          >
-            Hacemos que tu marca se vea mejor, comunique mejor y venda mejor.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.16 }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-[var(--compi-blue)]/90 md:text-xl"
-          >
-            En COMPI ayudamos a marcas y empresas a crecer con estrategia,
-            contenido, campañas publicitarias y páginas web pensadas para
-            convertir visitas en consultas, oportunidades o ventas.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.24 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-          >
-            <a href="#contacto" className="compi-btn-primary">
-              Quiero una propuesta
-              <ArrowRight className="h-4 w-4" />
-            </a>
-
-            <a href="#servicios" className="compi-btn-secondary">
-              Ver servicios
-            </a>
-          </motion.div>
-
-          <FloatingPills />
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 28, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.95, delay: 0.18 }}
-          className="relative"
-        >
-          <div className="rounded-[2rem] border border-[rgba(34,70,110,0.12)] bg-white p-5 shadow-[0_30px_90px_rgba(34,70,110,0.10)] md:p-6">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.6rem] bg-[var(--compi-deep-green)] p-6 text-white sm:col-span-2">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/65">
-                  Qué hacemos
-                </p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.03em]">
-                  Ordenamos tu marketing para que tenga dirección y resultados.
-                </h2>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-white/78">
-                  Definimos estrategia, desarrollamos contenido, gestionamos
-                  campañas y creamos landing pages o sitios web alineados con tu
-                  objetivo comercial.
-                </p>
-              </div>
-
-              {heroHighlights.map((item, index) => {
-                const Icon = item.icon;
-                const cardClass =
-                  index === 0
-                    ? "bg-[var(--compi-mint)] text-[var(--compi-deep-green)]"
-                    : index === 1
-                    ? "bg-[var(--compi-blue)] text-white"
-                    : "bg-[var(--compi-sky)] text-[var(--compi-blue)] sm:col-span-2";
-
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.32 + index * 0.08, duration: 0.6 }}
-                    className={`rounded-[1.5rem] p-5 ${cardClass}`}
-                  >
-                    <div className="mb-4 inline-flex rounded-2xl bg-white/20 p-3">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <p className="text-xl font-bold leading-tight">{item.title}</p>
-                    <p className="mt-3 text-sm leading-7 opacity-90">{item.text}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="brand-chip absolute -left-3 top-10 rotate-[-8deg] bg-[var(--compi-orange)] text-white">
-            Meta + Google Ads
-          </div>
-          <div className="brand-chip absolute -right-3 bottom-10 rotate-[6deg] bg-[var(--compi-mint)] text-[var(--compi-deep-green)]">
-            Branding + contenido
-          </div>
-          <div className="hero-hand absolute -bottom-6 left-8 text-lg text-[var(--compi-blue)]">
-            Todo tiene que trabajar en conjunto.
-          </div>
-        </motion.div>
       </div>
 
       <motion.a
         href="#problema"
-        initial={{ opacity: 0, y: 14 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.95, duration: 0.8 }}
+        transition={{ delay: 0.38, duration: 0.35 }}
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center text-[var(--compi-blue-soft)]"
       >
         <span className="mb-2 text-xs uppercase tracking-[0.32em]">Scroll</span>
-        <ChevronDown className="h-5 w-5 animate-bounce" />
+        <ChevronDown className="h-5 w-5 animate-bounce [animation-duration:0.75s]" />
       </motion.a>
     </section>
   );

@@ -18,7 +18,7 @@ export default function App() {
   }, [showIntro]);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[var(--compi-paper)]">
+    <div className="compi-site-bg relative min-h-screen overflow-x-hidden">
       <AnimatePresence>
         {showIntro ? <SplashIntro onFinish={() => setShowIntro(false)} /> : null}
       </AnimatePresence>
