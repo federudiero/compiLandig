@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import logoCompi from "../../assets/logo-compi.png";
 
 const FULL_TEXT = "AGENCIA DE MARKETING";
+const MATE_ILLUSTRATION = "/media/decor/illustrations/mate.png";
+const KETTLE_ILLUSTRATION = "/media/decor/illustrations/kettle.png";
 
 function useTypewriter(text, start = 900, speed = 55) {
   const [value, setValue] = useState("");
@@ -136,10 +138,35 @@ export default function SplashIntro({ onFinish }) {
               </motion.div>
 
               <motion.div
+                initial={{ opacity: 0, y: 18, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="splash-mate-loader mt-7"
+                aria-hidden="true"
+              >
+                <motion.img
+                  src={MATE_ILLUSTRATION}
+                  alt=""
+                  draggable="false"
+                  className="splash-mate-loader-img"
+                  animate={{ y: [0, -9, 0], rotate: [-2, 3, -2] }}
+                  transition={{ duration: 1.55, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.img
+                  src={KETTLE_ILLUSTRATION}
+                  alt=""
+                  draggable="false"
+                  className="splash-kettle-loader-img"
+                  animate={{ rotate: [-5, 6, -5], x: [0, 5, 0] }}
+                  transition={{ duration: 1.75, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+                />
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0.18, 0.5, 0.18] }}
                 transition={{ delay: 1.3, duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                className="mt-8 text-[10px] uppercase tracking-[0.4em] text-[var(--compi-blue-soft)]"
+                className="mt-5 text-[10px] uppercase tracking-[0.4em] text-[var(--compi-blue-soft)]"
               >
                 entrando...
               </motion.div>

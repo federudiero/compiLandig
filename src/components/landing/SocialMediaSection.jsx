@@ -6,18 +6,18 @@ import { SectionEyebrow } from "./ui";
 const socialItems = [
   {
     name: "Instagram",
-    handle: "@teamcompi",
+    handle: "compi.agencia",
     description: "Contenido, identidad visual, proyectos y mirada creativa de COMPI.",
     accent: "var(--compi-orange)",
     icon: InstagramLogo,
     url: "",
   },
   {
-    name: "TikTok",
-    handle: "@teamcompi",
-    description: "Ideas rápidas, procesos, tips y piezas pensadas para marcas en crecimiento.",
+    name: "LinkedIn",
+    handle: "COMPI Agencia",
+    description: "Estrategia, servicios, proyectos y mirada profesional sobre marcas en crecimiento.",
     accent: "var(--compi-deep-green)",
-    icon: TikTokLogo,
+    icon: LinkedInLogo,
     url: "",
   },
   {
@@ -40,10 +40,10 @@ function InstagramLogo({ className = "h-7 w-7" }) {
   );
 }
 
-function TikTokLogo({ className = "h-7 w-7" }) {
+function LinkedInLogo({ className = "h-7 w-7" }) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" className={className} fill="currentColor">
-      <path d="M20.7 4.8c.4 3 2.1 4.9 5.1 5.2v4.1a9.2 9.2 0 0 1-5-1.5v7.9c0 4-2.6 6.7-6.7 6.7-3.7 0-6.5-2.5-6.5-6.1 0-3.8 3-6.5 7.2-6.1v4.2c-1.8-.3-3 .5-3 1.9 0 1.2.9 2 2.3 2 1.5 0 2.4-.9 2.4-2.6V4.8h4.2Z" />
+      <path d="M8.1 11.8h4.4V26H8.1V11.8Zm2.2-7.1a2.55 2.55 0 1 1 0 5.1 2.55 2.55 0 0 1 0-5.1ZM15.2 11.8h4.2v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.6V26h-4.4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.8 1.9-2.8 3.8V26h-4.4V11.8Z" />
     </svg>
   );
 }

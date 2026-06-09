@@ -166,7 +166,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonios"
-      className="relative overflow-hidden px-6 py-24 lg:px-10"
+      className="why-dynamic-section compi-dynamic-section relative overflow-hidden px-6 py-24 lg:px-10"
     >
       <div
         aria-hidden="true"
@@ -176,6 +176,9 @@ export default function TestimonialsSection() {
         aria-hidden="true"
         className="absolute bottom-10 right-[-8rem] h-72 w-72 rounded-full bg-[var(--compi-mint)]/20 blur-3xl"
       />
+      <div aria-hidden="true" className="why-floating-line why-floating-line-a" />
+      <div aria-hidden="true" className="why-floating-line why-floating-line-b" />
+      <div aria-hidden="true" className="dynamic-dot-grid why-dot-grid" />
 
       <div className="relative mx-auto max-w-7xl">
         <SectionEyebrow>Por qué COMPI</SectionEyebrow>
@@ -184,6 +187,19 @@ export default function TestimonialsSection() {
           title="Una agencia que combina estrategia, creatividad y ejecución."
           text="No se trata solo de diseñar piezas o lanzar anuncios. Se trata de entender tu negocio, construir una propuesta clara y ejecutar acciones que ayuden a comunicar y vender mejor."
         />
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="why-energy-strip mt-9"
+        >
+          <span>Estrategia</span>
+          <span>Contenido</span>
+          <span>Pauta</span>
+          <span>Web</span>
+        </motion.div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {socialComments.map((comment, index) => {
@@ -197,7 +213,8 @@ export default function TestimonialsSection() {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.22 }}
                 transition={{ duration: 0.65, delay: index * 0.08 }}
-                className="compi-brand-card group relative overflow-hidden rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_78px_rgba(34,70,110,0.14)]"
+                whileHover={{ y: -8, rotate: index % 2 === 0 ? -0.45 : 0.45 }}
+                className="why-dynamic-card compi-brand-card group relative overflow-hidden rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_78px_rgba(34,70,110,0.14)]"
               >
                 <div
                   aria-hidden="true"
@@ -261,7 +278,8 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-20 rounded-[2.5rem] border border-[rgba(139,193,221,0.65)] bg-white/58 p-6 shadow-[0_24px_80px_rgba(34,70,110,0.08)] backdrop-blur md:p-8 lg:p-10"
+          whileHover={{ y: -5 }}
+          className="brands-dynamic-panel mt-20 rounded-[2.5rem] border border-[rgba(139,193,221,0.65)] bg-white/58 p-6 shadow-[0_24px_80px_rgba(34,70,110,0.08)] backdrop-blur md:p-8 lg:p-10"
         >
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>

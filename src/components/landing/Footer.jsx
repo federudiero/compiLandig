@@ -34,20 +34,6 @@ const footerServices = [
   "Optimización de conversión",
 ];
 
-function FloatingWhatsAppButton({ onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label="Abrir consulta por WhatsApp"
-      className="group fixed right-3 top-1/2 z-[80] inline-flex -translate-y-1/2 items-center gap-2 rounded-full border border-white/60 bg-[#25D366] p-3 text-white shadow-[0_18px_50px_rgba(0,69,56,0.25)] transition hover:-translate-y-[calc(50%+2px)] hover:bg-[var(--compi-deep-green)] sm:right-5 sm:px-4 sm:py-3"
-    >
-      <WhatsAppBrandIcon className="h-7 w-7 shrink-0" />
-      <span className="hidden pr-1 text-sm font-black sm:inline">WhatsApp</span>
-      <span className="absolute -left-2 top-1/2 h-3 w-3 -translate-x-full -translate-y-1/2 rounded-full bg-[var(--compi-orange)] shadow-[0_0_0_6px_rgba(235,88,64,0.12)] transition group-hover:scale-125" />
-    </button>
-  );
-}
 
 export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,8 +46,6 @@ export default function Footer() {
 
   return (
     <>
-      <FloatingWhatsAppButton onClick={() => openWhatsAppModal("argentina")} />
-
       <footer className="relative z-10 px-4 pb-8 pt-8 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.25rem] border border-[rgba(34,70,110,0.13)] bg-white/82 shadow-[0_28px_90px_rgba(34,70,110,0.10)] backdrop-blur-xl">
           <div className="grid gap-10 px-6 py-9 sm:px-8 lg:grid-cols-[1.12fr_0.8fr_0.8fr_1fr] lg:px-10 lg:py-11">

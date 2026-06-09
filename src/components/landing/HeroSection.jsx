@@ -1,8 +1,45 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { SectionEyebrow } from "./ui";
 import { heroPills } from "../../data/compiLandingData";
+
+function RotatingHeroTitle() {
+  const phrases = useMemo(
+    () => [
+      "Potenciamos tu negocio",
+      "Desarrollando estrategias de marketing digital",
+    ],
+    []
+  );
+
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setPhraseIndex((current) => (current + 1) % phrases.length);
+    }, 5600);
+
+    return () => window.clearInterval(interval);
+  }, [phrases.length]);
+
+  return (
+    <span className="hero-rotating-title" aria-live="polite">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={phrases[phraseIndex]}
+          className="hero-fading-title"
+          initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -14, filter: "blur(8px)" }}
+          transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {phrases[phraseIndex]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 function FloatingPills() {
   return (
@@ -38,6 +75,54 @@ function FloatingPills() {
   );
 }
 
+function HeroVisual() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 34, scale: 0.98 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ duration: 0.58, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+      className="hero-visual-stage relative mx-auto mt-4 w-full max-w-[360px] sm:max-w-[420px] lg:mt-0 lg:max-w-[520px] lg:self-end"
+    >
+      <div className="hero-visual-halo" />
+      <div className="hero-visual-shadow" />
+
+      <div className="hero-team-composition" aria-label="Nico e Iris, equipo de COMPI">
+        <motion.div
+          className="hero-person-placement hero-person-nico-placement"
+          initial={{ opacity: 0, x: -18, y: 10 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="hero-person-float hero-person-float-nico">
+            <img
+              src="/images/team/nico-cutout.png"
+              alt="Nico, equipo de COMPI"
+              draggable="false"
+              className="hero-person-cutout"
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="hero-person-placement hero-person-iris-placement"
+          initial={{ opacity: 0, x: 18, y: 10 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="hero-person-float hero-person-float-iris">
+            <img
+              src="/images/team/iris-cutout.png"
+              alt="Iris, equipo de COMPI"
+              draggable="false"
+              className="hero-person-cutout"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function HeroSection() {
   return (
     <section
@@ -63,9 +148,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="mt-4 max-w-4xl font-[var(--font-display)] text-5xl font-extrabold leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
+              className="hero-title-shell mt-4 max-w-4xl font-[var(--font-display)] text-5xl leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
             >
-              Desarrollamos estrategias de marketing digital para potenciar tu negocio.
+              <RotatingHeroTitle />
             </motion.h1>
 
             <motion.p
@@ -96,23 +181,7 @@ export default function HeroSection() {
             <FloatingPills />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 34, scale: 0.98 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.58, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto mt-4 w-full max-w-[360px] sm:max-w-[420px] lg:mt-0 lg:max-w-[500px] lg:self-end"
-          >
-            <div className="absolute inset-x-4 bottom-3 top-14 rounded-[999px] bg-[radial-gradient(circle_at_50%_45%,rgba(250,184,64,0.28),rgba(255,255,255,0)_68%)] blur-sm" />
-            <div className="absolute bottom-3 left-1/2 h-16 w-[78%] -translate-x-1/2 rounded-full bg-[rgba(34,70,110,0.12)] blur-2xl" />
-
-            <motion.img
-              src="/equipo-compi.png"
-              alt="Equipo de COMPI"
-              draggable="false"
-              className="relative z-10 mx-auto w-full max-h-[70vh] object-contain drop-shadow-[0_28px_42px_rgba(10,31,44,0.2)]"
-            
-            />
-          </motion.div>
+          <HeroVisual />
         </div>
       </div>
 

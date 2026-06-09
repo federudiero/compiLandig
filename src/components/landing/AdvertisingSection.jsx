@@ -62,7 +62,7 @@ export default function AdvertisingSection() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <section id="pauta" className="relative overflow-hidden px-6 py-20 lg:px-10">
+    <section id="pauta" className="advertising-dynamic-section compi-dynamic-section relative overflow-hidden px-6 py-20 lg:px-10">
       <div
         aria-hidden="true"
         className="absolute left-[-8rem] top-10 h-80 w-80 rounded-full bg-[var(--compi-sky)]/30 blur-3xl"
@@ -71,6 +71,9 @@ export default function AdvertisingSection() {
         aria-hidden="true"
         className="absolute bottom-4 right-[-7rem] h-72 w-72 rounded-full bg-[var(--compi-orange)]/15 blur-3xl"
       />
+      <div aria-hidden="true" className="dynamic-ribbon dynamic-ribbon-a" />
+      <div aria-hidden="true" className="dynamic-ribbon dynamic-ribbon-b" />
+      <div aria-hidden="true" className="dynamic-dot-grid" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-7 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
@@ -80,7 +83,8 @@ export default function AdvertisingSection() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="compi-sky-panel relative overflow-hidden rounded-[2.25rem] p-6 md:p-8"
+            whileHover={{ y: -6, rotate: -0.35 }}
+            className="advertising-hero-card dynamic-tilt-card compi-sky-panel relative overflow-hidden rounded-[2.25rem] p-6 md:p-8"
           >
             <div
               aria-hidden="true"
@@ -127,14 +131,18 @@ export default function AdvertisingSection() {
                 </div>
               </div>
 
-              <div className="mt-6 overflow-hidden rounded-[1.8rem] border border-white/45 bg-white/30 shadow-[0_22px_60px_rgba(34,70,110,0.14)] ring-1 ring-[rgba(139,193,221,0.62)]">
+              <motion.div
+                whileHover={{ scale: 1.025, rotate: 0.45 }}
+                transition={{ duration: 0.3 }}
+                className="ad-creative-frame mt-6 overflow-hidden rounded-[1.8rem] border border-white/45 bg-white/30 shadow-[0_22px_60px_rgba(34,70,110,0.14)] ring-1 ring-[rgba(139,193,221,0.62)]"
+              >
                 <img
-                  src="/images/pauta-creativo.jpg"
+                  src="/pauta-creativo.jpg"
                   alt="Producción creativa de COMPI para campañas publicitarias"
-                  className="h-56 w-full object-cover object-[center_42%] sm:h-72 xl:h-[18.5rem]"
+                  className="ad-creative-image h-56 w-full object-cover object-[center_42%] sm:h-72 xl:h-[18.5rem]"
                   loading="lazy"
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.article>
 
@@ -149,7 +157,8 @@ export default function AdvertisingSection() {
                 delay: 0.05,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="compi-brand-card rounded-[2.25rem] p-6 md:p-8"
+              whileHover={{ y: -6, rotate: 0.25 }}
+              className="campaign-story-card dynamic-tilt-card compi-brand-card rounded-[2.25rem] p-6 md:p-8"
             >
               <p className="text-xs font-bold uppercase tracking-[0.32em] text-[var(--compi-blue-soft)]">
                 Estrategia de campañas
@@ -183,6 +192,7 @@ export default function AdvertisingSection() {
                       duration: 0.58,
                       delay: 0.08 + index * 0.05,
                     }}
+                    whileHover={{ y: -7, rotate: index % 2 === 0 ? -0.55 : 0.55 }}
                     onClick={() =>
                       setActiveCard((current) =>
                         current === index ? null : index
@@ -190,7 +200,7 @@ export default function AdvertisingSection() {
                     }
                     onMouseEnter={() => setActiveCard(index)}
                     onMouseLeave={() => setActiveCard(null)}
-                    className="group relative min-h-[10.8rem] cursor-pointer overflow-hidden rounded-[1.8rem] border border-[rgba(139,193,221,0.95)] bg-white/82 p-5 shadow-[0_18px_52px_rgba(34,70,110,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(34,70,110,0.14)]"
+                    className="ad-strategy-mini-card group relative min-h-[10.8rem] cursor-pointer overflow-hidden rounded-[1.8rem] border border-[rgba(139,193,221,0.95)] bg-white/82 p-5 shadow-[0_18px_52px_rgba(34,70,110,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(34,70,110,0.14)]"
                   >
                     <div
                       aria-hidden="true"
@@ -229,7 +239,8 @@ export default function AdvertisingSection() {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.64, delay: 0.08 }}
-              className="compi-brand-card rounded-[2.25rem] p-6 md:p-8"
+              whileHover={{ y: -5 }}
+              className="campaign-actions-card compi-brand-card rounded-[2.25rem] p-6 md:p-8"
             >
               <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                 <div>
@@ -256,9 +267,10 @@ export default function AdvertisingSection() {
                   const Icon = item.icon;
 
                   return (
-                    <div
+                    <motion.div
                       key={item.title}
-                      className="rounded-[1.6rem] border border-[rgba(139,193,221,0.42)] bg-white/55 p-4"
+                      whileHover={{ x: 5, scale: 1.015 }}
+                      className="ad-action-row rounded-[1.6rem] border border-[rgba(139,193,221,0.42)] bg-white/55 p-4"
                     >
                       <div className="flex gap-4">
                         <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[var(--compi-paper-strong)] text-[var(--compi-deep-green)] ring-1 ring-[rgba(0,69,56,0.06)]">
@@ -274,7 +286,7 @@ export default function AdvertisingSection() {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>

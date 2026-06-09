@@ -14,8 +14,14 @@ const teamMembers = [
   {
     name: "NICO",
     role: "Director de performance",
-    image: "/images/team/nico.webp",
-    imagePosition: "center 16%",
+    image: "/images/team/nico.jpg",
+    imageCandidates: [
+      "/images/team/nico.jpg",
+      "/images/team/nico.webp",
+      "/team/nico.jpg",
+      "/team/nico.webp",
+    ],
+    imagePosition: "center 24%",
     description:
       "Piensa la estrategia con Iris y la lleva a números: pauta, optimización y crecimiento real.",
   },
@@ -38,8 +44,14 @@ const teamMembers = [
   {
     name: "ROCHI",
     role: "Community Manager y creadora de contenido",
-    image: "/images/team/rochi.webp",
-    imagePosition: "center 18%",
+    image: "/images/team/rochi.jpg",
+    imageCandidates: [
+      "/images/team/rochi.jpg",
+      "/images/team/rochi.webp",
+      "/team/rochi.jpg",
+      "/team/rochi.webp",
+    ],
+    imagePosition: "center 22%",
     description: "Produce, ejecuta y hace que las ideas no queden en ideas.",
   },
   {
@@ -60,9 +72,14 @@ const teamMembers = [
 ];
 
 function TeamImage({ member }) {
-  const [hasError, setHasError] = useState(false);
+  const imageCandidates = member.imageCandidates?.length
+    ? member.imageCandidates
+    : [member.image];
 
-  if (hasError) {
+  const [imageIndex, setImageIndex] = useState(0);
+  const currentImage = imageCandidates[imageIndex];
+
+  if (!currentImage) {
     return (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#f7f1e8_0%,#eef3f2_45%,#d8e4df_100%)]">
         <div className="text-center">
@@ -80,11 +97,11 @@ function TeamImage({ member }) {
 
   return (
     <img
-      src={member.image}
+      src={currentImage}
       alt={`${member.name} - ${member.role}`}
       loading="lazy"
       decoding="async"
-      onError={() => setHasError(true)}
+      onError={() => setImageIndex((index) => index + 1)}
       style={{ objectPosition: member.imagePosition || "center" }}
       className="h-full w-full object-cover grayscale transition duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-focus-within:scale-105 group-focus-within:grayscale-0"
     />

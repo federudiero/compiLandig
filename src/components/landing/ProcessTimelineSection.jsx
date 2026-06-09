@@ -49,6 +49,12 @@ const processItems = [
 ];
 
 function ProcessRouteLine() {
+  const desktopRoute =
+    "M46 226 C146 116 242 104 334 214 C426 324 514 326 598 214 C684 100 790 104 874 214 C962 326 1054 318 1156 206";
+
+  const mobileRoute =
+    "M60 24 C24 118 96 214 60 310 C24 406 96 502 60 600 C24 696 96 790 60 928";
+
   return (
     <div className="process-route-lines" aria-hidden="true">
       <svg
@@ -59,28 +65,30 @@ function ProcessRouteLine() {
         <defs>
           <linearGradient id="processRouteGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#004538" />
-            <stop offset="22%" stopColor="#22466e" />
-            <stop offset="44%" stopColor="#8bc1dd" />
-            <stop offset="64%" stopColor="#eb5840" />
+            <stop offset="20%" stopColor="#8bc1dd" />
+            <stop offset="42%" stopColor="#22466e" />
+            <stop offset="63%" stopColor="#eb5840" />
             <stop offset="82%" stopColor="#004538" />
             <stop offset="100%" stopColor="#badbb4" />
           </linearGradient>
 
-          <filter id="processRouteShadow" x="-10%" y="-35%" width="120%" height="170%">
-            <feDropShadow dx="0" dy="12" stdDeviation="10" floodColor="#22466e" floodOpacity="0.12" />
+          <filter id="processRouteShadow" x="-10%" y="-45%" width="120%" height="190%">
+            <feDropShadow dx="0" dy="18" stdDeviation="14" floodColor="#22466e" floodOpacity="0.16" />
           </filter>
         </defs>
 
-        <path
-          className="process-route-base"
-          d="M70 198 C150 62 235 62 315 198 S480 334 560 198 S725 62 805 198 S970 334 1130 198"
-          filter="url(#processRouteShadow)"
-        />
+        <path className="process-route-shadow" d={desktopRoute} />
+        <path className="process-route-road" d={desktopRoute} filter="url(#processRouteShadow)" />
+        <path className="process-route-road-light" d={desktopRoute} />
+        <path className="process-route-color" d={desktopRoute} />
+        <path className="process-route-color-line process-route-color-line-one" d={desktopRoute} />
+        <path className="process-route-color-line process-route-color-line-two" d={desktopRoute} />
+        <path className="process-route-center" d={desktopRoute} />
+        <path id="process-road-path-desktop" className="process-route-active" d={desktopRoute} />
 
         <path
-          id="process-road-path-desktop"
-          className="process-route-active"
-          d="M70 198 C150 62 235 62 315 198 S480 334 560 198 S725 62 805 198 S970 334 1130 198"
+          className="process-route-end-arrow"
+          d="M1142 188 L1170 205 L1142 222 L1151 205 Z"
         />
 
         <circle className="process-route-dot" r="8">
@@ -95,16 +103,12 @@ function ProcessRouteLine() {
         viewBox="0 0 120 950"
         preserveAspectRatio="none"
       >
-        <path
-          className="process-route-base"
-          d="M60 20 C22 120 98 210 60 310 C22 410 98 500 60 600 C22 700 98 790 60 930"
-        />
-
-        <path
-          id="process-road-path-mobile"
-          className="process-route-active"
-          d="M60 20 C22 120 98 210 60 310 C22 410 98 500 60 600 C22 700 98 790 60 930"
-        />
+        <path className="process-route-shadow" d={mobileRoute} />
+        <path className="process-route-road" d={mobileRoute} />
+        <path className="process-route-road-light" d={mobileRoute} />
+        <path className="process-route-color" d={mobileRoute} />
+        <path className="process-route-center" d={mobileRoute} />
+        <path id="process-road-path-mobile" className="process-route-active" d={mobileRoute} />
 
         <circle className="process-route-dot" r="7">
           <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
