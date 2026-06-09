@@ -1,45 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { SectionEyebrow } from "./ui";
 import { heroPills } from "../../data/compiLandingData";
-
-function RotatingHeroTitle() {
-  const phrases = useMemo(
-    () => [
-      "Potenciamos tu negocio",
-      "Desarrollando estrategias de marketing digital",
-    ],
-    []
-  );
-
-  const [phraseIndex, setPhraseIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setPhraseIndex((current) => (current + 1) % phrases.length);
-    }, 5600);
-
-    return () => window.clearInterval(interval);
-  }, [phrases.length]);
-
-  return (
-    <span className="hero-rotating-title" aria-live="polite">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={phrases[phraseIndex]}
-          className="hero-fading-title"
-          initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -14, filter: "blur(8px)" }}
-          transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {phrases[phraseIndex]}
-        </motion.span>
-      </AnimatePresence>
-    </span>
-  );
-}
 
 function FloatingPills() {
   return (
@@ -135,7 +98,7 @@ export default function HeroSection() {
 
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(300px,0.55fr)] lg:gap-14">
-          <div className="max-w-4xl">
+          <div className="max-w-5xl overflow-visible">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -148,9 +111,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="hero-title-shell mt-4 max-w-4xl font-[var(--font-display)] text-5xl leading-[0.94] tracking-[-0.03em] text-[var(--compi-deep-green)] md:text-7xl"
+              className="mt-4 max-w-5xl overflow-visible pb-2 font-[var(--font-display)] text-5xl font-extrabold tracking-[-0.055em] text-[var(--compi-deep-green)] md:text-7xl"
+              style={{
+                lineHeight: 1.02,
+                textWrap: "balance",
+              }}
             >
-              <RotatingHeroTitle />
+              Potenciamos tu negocio desarrollando estrategias de marketing digital
             </motion.h1>
 
             <motion.p
@@ -159,7 +126,8 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="mt-6 max-w-2xl text-lg leading-8 text-[var(--compi-blue)]/90 md:text-xl"
             >
-              Optimizamos tu presencia online, generamos tráfico de calidad y aumentamos consultas y oportunidades de venta.
+              Optimizamos tu presencia online, generamos tráfico de calidad y
+              aumentamos consultas y oportunidades de venta.
             </motion.p>
 
             <motion.div
@@ -169,7 +137,7 @@ export default function HeroSection() {
               className="mt-10 flex flex-col gap-4 sm:flex-row"
             >
               <a href="#contacto" className="compi-btn-primary">
-                Agendar un diagnostico gratuito
+                Agendar un diagnóstico gratuito
                 <ArrowRight className="h-4 w-4" />
               </a>
 
