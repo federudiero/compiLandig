@@ -6,8 +6,6 @@ import { SectionEyebrow, SectionHeading } from "./ui";
 export default function BenefitsSection() {
   return (
     <section id="beneficios" className="results-dynamic-section compi-dynamic-section relative overflow-hidden px-6 py-24 lg:px-10">
-      <div aria-hidden="true" className="results-orbit results-orbit-a" />
-      <div aria-hidden="true" className="results-orbit results-orbit-b" />
       <div aria-hidden="true" className="dynamic-dot-grid results-dot-grid" />
 
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr]">

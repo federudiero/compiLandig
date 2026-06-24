@@ -11,6 +11,7 @@ import Footer from "../components/landing/Footer";
 import { BackgroundGlow } from "../components/landing/ui";
 import TeamSection from "../components/landing/TeamSection";
 import AdvertisingSection from "../components/landing/AdvertisingSection";
+import ContentCreationSection from "../components/landing/ContentCreationSection";
 import InteractiveIllustrations from "../components/landing/InteractiveIllustrations";
 import FloatingActions from "../components/landing/FloatingActions";
 
@@ -26,6 +27,7 @@ export default function CompiLandingPage() {
         <TeamSection />
         <ProcessTimelineSection />
         <AdvertisingSection />
+        <ContentCreationSection />
         <PortfolioSection />
         <BenefitsSection />
         <TestimonialsSection />

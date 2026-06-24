@@ -176,8 +176,6 @@ export default function TestimonialsSection() {
         aria-hidden="true"
         className="absolute bottom-10 right-[-8rem] h-72 w-72 rounded-full bg-[var(--compi-mint)]/20 blur-3xl"
       />
-      <div aria-hidden="true" className="why-floating-line why-floating-line-a" />
-      <div aria-hidden="true" className="why-floating-line why-floating-line-b" />
       <div aria-hidden="true" className="dynamic-dot-grid why-dot-grid" />
 
       <div className="relative mx-auto max-w-7xl">

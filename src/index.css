@@ -3264,3 +3264,36 @@ select {
     will-change: auto !important;
   }
 }
+
+/* Floating actions live in a portal, so they must always anchor to the viewport. */
+.floating-actions {
+  position: fixed !important;
+  right: max(1rem, env(safe-area-inset-right)) !important;
+  bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 220 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 0.75rem !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+
+.floating-actions > * {
+  pointer-events: auto !important;
+}
+
+.floating-actions .floating-whatsapp-button {
+  position: relative !important;
+  inset: auto !important;
+  z-index: auto !important;
+}
+
+@media (max-width: 640px) {
+  .floating-actions {
+    right: max(0.85rem, env(safe-area-inset-right)) !important;
+    bottom: max(0.85rem, env(safe-area-inset-bottom)) !important;
+  }
+}

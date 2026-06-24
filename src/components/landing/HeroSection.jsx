@@ -92,10 +92,6 @@ export default function HeroSection() {
       id="inicio"
       className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-32 lg:px-10"
     >
-      <div className="hero-doodle hero-doodle-a" />
-      <div className="hero-doodle hero-doodle-b" />
-      <div className="hero-doodle hero-doodle-c" />
-
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(300px,0.55fr)] lg:gap-14">
           <div className="max-w-5xl overflow-visible">
